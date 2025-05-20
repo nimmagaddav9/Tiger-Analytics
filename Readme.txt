@@ -6191,3 +6191,108 @@ ts
 private subject = new Subject<any>();
 broadcast$ = this.subject.asObservable();
 emitChange(data) { this.subject.next(data); }
+
+
+17. What is AOT in Angular?
+The Angular ahead-of-time (AOT) compiler converts your Angular HTML and TypeScript code into efficient JavaScript code during the build phase before the browser downloads and runs that code. 
+Compiling your application during the build process provides a faster rendering in the browser.
+
+
+AOT in Angular stands for Ahead-of-Time compilation. It's a compilation mode where the Angular application, including its templates
+and components, is compiled into JavaScript code during the build process, before the application is deployed and run in the browser.
+This contrasts with Just-in-Time (JIT) compilation, where the compilation occurs in the browser at runtime.
+
+
+
+How do you perform routing in an Angular application?
+
+Routing in Angular is done using the Angular Router. You define routes in a routing module using RouterModule.forRoot(), use <router-outlet> to load components, and navigate using routerLink or the Router service. Example:
+
+ts
+Copy
+Edit
+const routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent }
+];
+In template:
+
+html
+Copy
+Edit
+<a routerLink="/about">About</a>
+<router-outlet></router-outlet>
+
+
+===============================
+
+Angular lifecycle hooks?
+
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    constructor(){
+        //constructor will execute at booting time.
+        //constructor will execute only once.
+        //in general we will use constructor for dependency injection purpose
+        //Ex. creating the objects to the services
+        //we can use constructor for initializing the instance members
+        console.log("in constructor");
+    };
+
+    ngOnChanges(){
+        //after constructor Angular Framework gives the priortity to ngOnChanges life cycle hook.
+        //when ever change detected on "@Input() properties", automatically this life cycle hook will execute
+        //this life cycle hook may execute more than once based on Parent Component Changes.
+        console.log("ngOnChanges");
+    };
+
+    ngOnInit(){
+        //this life cycle hook is main life cycle hook
+        //this life cycle hook will execute only once
+        //this life cycle hook also called as first life cycle hook of component
+        //this life cycle hook is used to write the main business logic
+        //Ex.  making the subscriptions of Observables
+        //     usage of directives
+        console.log("ngOnInit");
+    };
+
+
+    ngDoCheck(){
+        //when ever change detected in component properties at background, at that this life cycle hook will execute
+        //this life cycle hook will execute more than one time.
+        //this life cycle hook priority goes to after ngOnInit
+        console.log("ngDoCheck");
+    };
+
+    ngAfterContentInit(){
+        //when ever component receives the external data and renders with the help of directives, then this life cycle hook will execute
+        //ngAfterContentInit life cycle hook will execute after ngDoCheck life cycle hook
+        console.log("ngAfterContentInit");
+    };
+
+    ngAfterContentChecked(){
+        //if external data verifies and renders successfully on Component , then this life cycle hook will execute
+        console.log("ngAfterContentChecked");  
+    };
+
+    ngAfterViewInit(){
+        //in general, we will use this life cycle hook to convert one data structure to another data structure for easy manipulations in Component
+        console.log("ngAfterViewInit");
+    };
+
+    ngOnDestroy(){
+        //before killing the component by angular framework then this life cycle hook will execute
+        //in general, we will place clean up operations like unsubscribing the services, nullifying the variables
+        console.log("ngOnDestroy");
+    };
+
+}
+
+
+
+
