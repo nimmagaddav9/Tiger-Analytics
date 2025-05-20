@@ -5862,3 +5862,135 @@ Debugging complexity in large apps.
 Large bundle sizes if not managed.
 
 Not a full framework, relies on third-party tools.
+
+======================================================
+
+ Frontend (Angular, TypeScript, CSS/SASS)
+1. What are key differences between Angular services and components?
+    Answer:
+    Components control views and handle user interactions, while services contain business logic and reusable code. Services are injected using Angular’s DI system and help with separation of concerns (e.g., data fetching or caching logic).
+
+2. How do you manage shared state across components in Angular?
+    Answer:
+    Using a shared service with RxJS subjects/observables or NgRx for complex state management. For example:
+
+
+    private userSubject = new BehaviorSubject<User | null>(null);
+    user$ = this.userSubject.asObservable();
+
+3. What’s the benefit of OnPush change detection?
+    Answer:
+    OnPush improves performance by limiting change detection to when input references change or observables emit. This prevents unnecessary DOM updates in large applications.
+
+4. How do you organize large-scale Angular apps?
+    Answer:
+    I use feature modules, lazy loading, shared/core modules, and leverage Nx monorepo for workspace organization, shared libraries, and incremental builds/testing.
+
+Backend (Node.js + NestJS + GraphQL)
+5. How is NestJS different from Express?
+    Answer:
+    NestJS is a higher-level framework built on Express (or Fastify), following Angular-style architecture (modules, DI, decorators). It enables cleaner structure, scalability, and built-in support for GraphQL, WebSockets, and validation.
+
+6. How do you handle authentication in NestJS?
+    Answer:
+    Using @nestjs/passport with JWT strategy:
+
+    Create an auth module.
+
+    Use guards like JwtAuthGuard for protected routes.
+
+    Inject Request.user using custom decorators.
+
+7. How does a GraphQL resolver work in NestJS?
+    Answer:
+    Resolvers act like controllers in REST. They use decorators like @Query(), @Mutation(), and @ResolveField() to define schema behavior. DTOs define the types, and services contain the business logic.
+
+8. What’s the difference between Query and Mutation in GraphQL?
+    Answer:
+
+    Query is for fetching data (read-only).
+
+    Mutation is for writing or updating data (state-changing operations).
+
+AWS / Cloud Infrastructure
+9. How do you deploy a Node.js app using AWS ECS Fargate?
+    Answer:
+
+    Dockerize the app.
+
+    Push image to ECR.
+
+    Create ECS Task Definition.
+
+    Use Fargate to run containerized service.
+
+    Load balance via ALB; configure logs to CloudWatch.
+
+10. When would you use Lambda vs Fargate?
+    Answer:
+
+    Lambda: Short-lived, event-driven tasks (e.g., image resize, API handlers).
+
+    Fargate: Long-running services (e.g., backend APIs) that require container orchestration without managing EC2.
+
+11. How do you implement caching using Redis (Elasticache)?
+    Answer:
+    Use Redis for storing frequently accessed data (e.g., user sessions or computed results):
+
+    const cached = await redis.get('user:123');
+    if (cached) return JSON.parse(cached);
+    Fallback to DB and set Redis if not found.
+
+12. What’s your approach to cost-tagging and cost optimization in AWS?
+
+    Answer:
+
+    Use cost allocation tags per environment/team.
+
+    Schedule non-prod resources to shut down off-hours.
+
+    Use CloudHealth or Cost Explorer to analyze usage.
+
+    Prefer Lambda + S3 for static content/API when possible.
+
+    Observability (Logging & Monitoring)
+
+
+13. How do you implement observability in your applications?
+    Answer:
+
+    Structured logging using Winston or NestJS Logger.
+
+    Logs shipped to Splunk using HTTP forwarders or Lambda log processors.
+
+    Monitor metrics using CloudWatch or Datadog, and set up alarms.
+
+    Instrument critical flows using tracing tools (like AWS X-Ray or OpenTelemetry).
+
+    Monorepo Tooling (Nx)
+
+14. What are the benefits of using Nx in a full-stack project?
+    Answer:
+
+    Efficient builds and caching.
+
+    Code sharing across apps/libs (e.g., interfaces, utils).
+
+    Dependency graph visualization.
+
+    Supports both Angular frontend and NestJS backend in a single repo.
+
+    General/Behavioral
+
+15. How do you debug a full stack issue?
+    Answer:
+
+    Reproduce the issue locally.
+
+    Use browser/network tools for frontend issues.
+
+    Trace backend logs (e.g., in CloudWatch or Splunk).
+
+    Use API Gateway/Lambda logs for serverless.
+
+    End-to-end tracing if observability is set up.
