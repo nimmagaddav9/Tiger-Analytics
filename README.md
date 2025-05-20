@@ -1,143 +1,140 @@
-🔹 1. What is your experience with Angular (8+), and how do you manage state in large applications?
-Answer:
-I've used Angular extensively in enterprise-scale applications. For state management, I've employed NgRx when dealing with complex shared state and RxJS for reactive data flows.
-I follow best practices like lazy loading, modular architecture, and using facades to abstract NgRx selectors and dispatches. This ensures scalability and maintainability.
+1. What is your experience with Angular (8+), and how do you manage state in large applications?
+   Answer:
+   I've used Angular extensively in enterprise-scale applications. For state management, I've employed NgRx when dealing with complex shared state and RxJS for reactive data flows.
+   I follow best practices like lazy loading, modular architecture, and using facades to abstract NgRx selectors and dispatches. This ensures scalability and maintainability.
 
-🔹 2. How have you used TypeScript in full-stack development?
-Answer:
-TypeScript is my default language for both frontend (Angular) and backend (NestJS).
-It helps enforce type safety, reduces bugs during development, and improves developer experience via IDE support.
-On the backend, interfaces are shared between frontend and backend for consistency in data contracts, especially when using GraphQL or REST APIs.
+2. How have you used TypeScript in full-stack development?
+   Answer:
+   TypeScript is my default language for both frontend (Angular) and backend (NestJS).
+   It helps enforce type safety, reduces bugs during development, and improves developer experience via IDE support.
+   On the backend, interfaces are shared between frontend and backend for consistency in data contracts, especially when using GraphQL or REST APIs.
 
-🔹 3. Can you describe your experience with NestJS and building GraphQL APIs?
-Answer:
-I've built multiple APIs using NestJS due to its modular architecture and TypeScript support. For GraphQL, I’ve used @nestjs/graphql with Apollo Server, implementing resolvers, schemas, and integrating with services.
-I follow the code-first approach and use decorators to define types and inputs, which ensures tight integration and clear schema design.
+3. Can you describe your experience with NestJS and building GraphQL APIs?
+   Answer:
+   I've built multiple APIs using NestJS due to its modular architecture and TypeScript support. For GraphQL, I’ve used @nestjs/graphql with Apollo Server, implementing resolvers, schemas, and integrating with services.
+   I follow the code-first approach and use decorators to define types and inputs, which ensures tight integration and clear schema design.
 
-🔹 4. Explain a scenario where you had to re-platform a legacy application to microservices in AWS.
-Answer:
-At [Previous Company], I led the effort to break a monolithic application into microservices hosted on AWS. We used ECS Fargate for containerized services, API Gateway + Lambda for
-lightweight endpoints, and DynamoDB for scalable storage. This shift improved deployment speed, scalability, and fault isolation.
-I also used CloudFormation for infrastructure-as-code.
+4. Explain a scenario where you had to re-platform a legacy application to microservices in AWS.
+   Answer:
+   At [Previous Company], I led the effort to break a monolithic application into microservices hosted on AWS. We used ECS Fargate for containerized services, API Gateway + Lambda for
+   lightweight endpoints, and DynamoDB for scalable storage. This shift improved deployment speed, scalability, and fault isolation.
+   I also used CloudFormation for infrastructure-as-code.
 
-🔹 5. How do you implement observability in your applications?
-Answer:
-Observability is essential for proactive monitoring and troubleshooting.
-I implement structured logging using Winston in Node.js, integrated with Splunk for log analysis.
-For metrics, I use AWS CloudWatch and Prometheus/Grafana where applicable. In the frontend, I use Sentry for error tracking.
-Alerts are configured based on thresholds or anomalies in logs/metrics.
+5. How do you implement observability in your applications?
+   Answer:
+   Observability is essential for proactive monitoring and troubleshooting.
+   I implement structured logging using Winston in Node.js, integrated with Splunk for log analysis.
+   For metrics, I use AWS CloudWatch and Prometheus/Grafana where applicable. In the frontend, I use Sentry for error tracking.
+   Alerts are configured based on thresholds or anomalies in logs/metrics.
 
-🔹 6. What is your approach to testing in a TDD (Test Driven Development) environment?
-Answer:
-I start by writing unit tests for services/components using Jest (NestJS) and Jasmine/Karma (Angular).
-For API endpoints, I use Supertest for integration testing. I ensure >80% test coverage and focus on writing meaningful tests, including edge cases. For frontend E2E testing,
-I use Cypress. TDD helps ensure robust and predictable code.
+6. What is your approach to testing in a TDD (Test Driven Development) environment?
+   Answer:
+   I start by writing unit tests for services/components using Jest (NestJS) and Jasmine/Karma (Angular).
+   For API endpoints, I use Supertest for integration testing. I ensure >80% test coverage and focus on writing meaningful tests, including edge cases. For frontend E2E testing,
+   I use Cypress. TDD helps ensure robust and predictable code.
 
-🔹 7. How do you optimize application performance both in frontend and backend?
-Answer:
+7. How do you optimize application performance both in frontend and backend?
+   Answer:
+   Frontend: I use lazy loading, OnPush change detection in Angular, tree shaking, and code splitting to reduce bundle size.
 
-Frontend: I use lazy loading, OnPush change detection in Angular, tree shaking, and code splitting to reduce bundle size.
+   Backend: Caching with Redis (Elasticache), pagination, batching (for GraphQL), and optimizing database queries. I also profile APIs for bottlenecks and optimize compute and memory in AWS Lambda and ECS tasks.
 
-Backend: Caching with Redis (Elasticache), pagination, batching (for GraphQL), and optimizing database queries. I also profile APIs for bottlenecks and optimize compute and memory in AWS Lambda and ECS tasks.
+8. Describe your experience working with Nrwl Nx Monorepo tooling.
+   Answer:
+   Nx allows us to manage multiple apps and libraries in a single monorepo with great tooling support. I've used it to streamline CI/CD, enforce code boundaries, and reuse logic across Angular and NestJS apps. It improves developer velocity and ensures consistent coding practices across teams.
 
-🔹 8. Describe your experience working with Nrwl Nx Monorepo tooling.
-Answer:
-Nx allows us to manage multiple apps and libraries in a single monorepo with great tooling support. I've used it to streamline CI/CD, enforce code boundaries, and reuse logic across Angular and NestJS apps. It improves developer velocity and ensures consistent coding practices across teams.
+9. How do you handle security in your applications (frontend & backend)?
+   Answer:
+   Frontend: Sanitize inputs, use Angular’s built-in XSS protection, implement Content Security Policies (CSP), and avoid direct DOM manipulations.
 
-🔹 9. How do you handle security in your applications (frontend & backend)?
-Answer:
+   Backend: Use helmet, rate limiting, JWT for auth, role-based access, and validate inputs using class-validator in NestJS. Also implement secure communication (HTTPS, encryption for sensitive data).
 
-Frontend: Sanitize inputs, use Angular’s built-in XSS protection, implement Content Security Policies (CSP), and avoid direct DOM manipulations.
+10. Have you worked with AWS Cost-tagging or CloudHealth for cost optimization?
+    Answer:
+    Yes, I've used AWS tagging policies to apply cost allocation tags to resources. This helps in identifying unused or underutilized resources.
+    With CloudHealth, we analyze usage patterns, optimize reserved instances, and generate cost reports to maintain budget efficiency.
 
-Backend: Use helmet, rate limiting, JWT for auth, role-based access, and validate inputs using class-validator in NestJS. Also implement secure communication (HTTPS, encryption for sensitive data).
+11. What is Dependency Injection in Angular?
+    Communication between the component and Services is called DI.
+    design pattern, integrate post and get API.
 
-🔹 10. Have you worked with AWS Cost-tagging or CloudHealth for cost optimization?
-Answer:
-Yes, I've used AWS tagging policies to apply cost allocation tags to resources. This helps in identifying unused or underutilized resources.
-With CloudHealth, we analyze usage patterns, optimize reserved instances, and generate cost reports to maintain budget efficiency.
-===================================================================================================
+12. can we inject service without a constructor in the component?
 
-1. What is Dependency Injection in Angular?
-   Communication between the component and Services is called DI.
-   design pattern, integrate post and get API.
+13. features of angular 16? Do you know the application loads in angular 16?
+    standalone project support
+    SSR(server side rendering)
+    syntax optimization
 
-2. can we inject service without a constructor in the component?
+14. What's new in Angular 17?
+    Typescript 5.2
+    New Declarative Control flow
+    Deferrable loading
 
-3. features of angular 16? Do you know the application loads in angular 16?
-   standalone project support
-   SSR(server side rendering)
-   syntax optimization
-
-4. What's new in Angular 17?
-   Typescript 5.2
-   New Declarative Control flow
-   Deferrable loading
-
-5. How many ways we can create form in angualr ? which one is better?
-   2types
-   Template-driven forms
-   Reactive Forms(Model-driven Forms)
+15. How many ways we can create form in angualr ? which one is better?
+    2types
+    Template-driven forms
+    Reactive Forms(Model-driven Forms)
 
 if requirement simple form 2-3 fields template-driven forms
 for complex - reactive forms
 
-6. If we a form how will you set the value?
-   setValue()
-   patchValue()
+16. If we a form how will you set the value?
+    setValue()
+    patchValue()
 
-7. What is Directives in angular ?
-   To enhance view capabilities or view features we go for directives.
-   change the structure of DOM at run time.
-   Structural directives: ngStyle and ngClass
-   Component Directive: ngIf, ngFor, ngSwitch
+17. What is Directives in angular ?
+    To enhance view capabilities or view features we go for directives.
+    change the structure of DOM at run time.
+    Structural directives: ngStyle and ngClass
+    Component Directive: ngIf, ngFor, ngSwitch
 
-8. what is host binding and host listener?
+18. what is host binding and host listener?
 
 @HostBinding and @HostListener are decorators in Angular that allow you to interact with the host element of a directive or a component.
 
 Ex: @HostBinding('style.backgroundColor')
 Ex: @HostListener('click')
 
-9. Do you know the features of Standalone components?
-   Standalone components are designed to be reusable and self-contained meaning they don't have strong dependencies on other components or services within the application.
-   Ex: date picker, a modal dialog, a notification component, a progress bar or file uploader.
+19. Do you know the features of Standalone components?
+    Standalone components are designed to be reusable and self-contained meaning they don't have strong dependencies on other components or services within the application.
+    Ex: date picker, a modal dialog, a notification component, a progress bar or file uploader.
 
-key characteristics
-isolation
-Reusability
-Encapsulation
-Minimal dependencies
-Clear Responsibilities
-Independent Styling
+    key characteristics
+    isolation
+    Reusability
+    Encapsulation
+    Minimal dependencies
+    Clear Responsibilities
+    Independent Styling
 
-10. What are differ blocks?
+20. What are differ blocks?
 
-11. What are signals? Angular 17
+21. What are signals? Angular 17
 
-12. What is interceptor?
+22. What is interceptor?
     API call with redux with interceptor we can set Http headers and response(manupulate request and response)
 
-13. how to add a header in the request?
+23. how to add a header in the request?
 
-14. rxjs operators? async operations
+24. rxjs operators? async operations
     do you know what operator is mostly used from rxjs? filter, mergeMap, switchMap, concatMap, combineLatest
 
-15. How to handle errors in services?
+25. How to handle errors in services?
     handling errors in services typically involves using RxJS observables along with the catchError operator.
 
-getData() method sends a HTTP GET request using Angular HttpClient and returns an observable.
-handleError() method is a private method in the service that receives the error as an argument.
+    getData() method sends a HTTP GET request using Angular HttpClient and returns an observable.
+    handleError() method is a private method in the service that receives the error as an argument.
 
-16. difference between pure pipes and impure pipes?
+26. difference between pure pipes and impure pipes?
     Pure Pipes are immutable and produce a new value when the input data changes.
 
-Impure pipes might be called more frequently as they are executed everytime there is a change detection cycle, even if the input hasm't changed.
+    Impure pipes might be called more frequently as they are executed everytime there is a change detection cycle, even if the input hasm't changed.
 
-17. What are standalone components?
+27. What are standalone components?
 
-18. Do you know SSR? Do you know Ngrx?
+28. Do you know SSR? Do you know Ngrx?
 
-19. If you have 1 module in that you module you have 10 components then how will you implement this?
+29. If you have 1 module in that you module you have 10 components then how will you implement this?
 
 how can you pass the data between 10 components?
 how will you get value in emit or do you know another way to use what subject you can use?
@@ -203,25 +200,25 @@ Supports reusability: Services can be shared across multiple components without 
 
 6. Node.js & Nest.js: How does Nest.js improve backend development compared to Express.js??
 
-Nest.js builds on Express.js by adding a modular, scalable architecture with built-in support for TypeScript, dependency injection, and decorators. It enforces best practices, improves code organization, and makes backend development more maintainable and testable compared to plain Express.js.
+   Nest.js builds on Express.js by adding a modular, scalable architecture with built-in support for TypeScript, dependency injection, and decorators. It enforces best practices, improves code organization, and makes backend development more maintainable and testable compared to plain Express.js.
 
 7. What strategies do you use for GraphQL performance optimization in a microservices architecture?
 
-For GraphQL performance optimization in a microservices setup, I use:
+   For GraphQL performance optimization in a microservices setup, I use:
 
-    Query batching and caching to reduce redundant requests.
+   Query batching and caching to reduce redundant requests.
 
-    DataLoader to batch and cache database or service calls within a request.
+   DataLoader to batch and cache database or service calls within a request.
 
-    Schema stitching or federation to efficiently combine microservices without overfetching.
+   Schema stitching or federation to efficiently combine microservices without overfetching.
 
-    Pagination and filtering to limit data volume.
+   Pagination and filtering to limit data volume.
 
-    Proper error handling and monitoring to quickly identify bottlenecks.
+   Proper error handling and monitoring to quickly identify bottlenecks.
 
-    And optimizing resolver logic to minimize unnecessary computations.
+   And optimizing resolver logic to minimize unnecessary computations.
 
-    These strategies help keep GraphQL APIs fast and scalable across distributed services.
+   These strategies help keep GraphQL APIs fast and scalable across distributed services.
 
 8. How would you implement observability and monitoring in a cloud-based application using Splunk or another tool?
 
