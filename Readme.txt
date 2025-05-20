@@ -5994,3 +5994,200 @@ AWS / Cloud Infrastructure
     Use API Gateway/Lambda logs for serverless.
 
     End-to-end tracing if observability is set up.
+
+    ==========================
+
+1) Can you quickly introduce yourself and your skills?
+
+I am a core UI Developer with 12+ years of experience building .com websites for different organizations using HTML5, CSS3, JavaScript, Angular 18, React.js, and Redux. 
+In the past 2 years, I worked on the React migration team, where I converted the .net pages to react on united.com. 
+Frontend is React, and used ATMOS (Own library) components used company wide.
+
+Worked on Security features for users where they can manage there account like Forgot password, Forgot MileagePlus number, 
+security questions, Sign-in features, Miles-Pooling, United Club pass,  Recent Activity, dashboard updates and 
+KTN(Known Traveler Number), Accessibility guidelines features on united.com.
+
+used middleware such as redux-saga to handle asynchronous tasks such as API calls, data fetching, and impure actions in a more organized and efficient way.
+
+The new initiative worked on Miles-Pooling( points you get after traveling), TSA Precheck, Account security and management features, and Under18.
+
+Previously worked with Accelerator team for Visa Inc. remediation of MBDA modules like Application Management, Account Management, Portfolio Management, Analytics, Recurring billing, Virtual Terminal, etc for bank users like Wells Fargo,  Bank of America, etc
+
+Capital Group worked on DAVIS Project. Davis stands for Data visualization where we build different highcharts using react and integrate into the AEM., the backend is Java. Previously I worked on Creative Workbench, a writing tool where articles are published on capital group websites.
+
+At Cerner Corporation worked on the medical examination forms.
+
+In Office Depot worked on black Friday reporting.
+
+Satinos Technologies created a tax portal and a schoomin website for the Vignan schools.
+
+2) What versions of Angular have you worked on?
+Answer:
+I've worked with Angular 16, which includes features like standalone components, environment injector improvements, and better performance for large apps using hydration and signals.
+
+3) What's the difference between JavaScript and TypeScript?
+Answer:
+TypeScript is a superset of JavaScript that adds static typing, interfaces, and advanced tooling support. 
+It helps catch errors at compile-time and enables better code organization for large-scale apps.
+
+4) Can you tell me the features of Angular 8?
+Answer:
+
+Differential loading for modern browsers
+
+Lazy loading with dynamic imports
+
+Builder APIs for custom CLI commands
+
+Support for web workers
+
+Improved TypeScript 3.4 compatibility
+
+Opt-in Ivy preview
+
+5) What are the building components of an Angular application?
+Answer:
+
+Modules (@NgModule)
+
+Components (@Component)
+
+Templates (HTML with Angular syntax)
+
+Services (@Injectable)
+
+Directives
+
+Pipes
+
+Routing configuration
+
+6) What are the different types of directives in Angular?
+Answer:
+
+Component Directive: Has a template (e.g., @Component)
+
+Structural Directives: Change DOM structure (e.g., *ngIf, *ngFor)
+
+Attribute Directives: Change appearance or behavior of an element (e.g., ngClass, ngStyle, custom directives)
+
+7) What is the purpose of ngOnDestroy?
+Answer:
+ngOnDestroy is a lifecycle hook used to clean up resources like subscriptions, intervals, or event listeners to prevent memory leaks when the component or directive is destroyed.
+
+8) What is a selector in Angular?
+Answer:
+A selector is a string that identifies a component in templates. For example:
+
+
+@Component({
+  selector: 'app-user-card',
+  ...
+})
+You use it like <app-user-card></app-user-card> in other templates.
+
+9) Can you write a code snippet in Angular to display different divs based on the selection of radio buttons?
+Answer:
+
+html
+
+<label><input type="radio" name="view" [(ngModel)]="selectedView" value="A"> A</label>
+<label><input type="radio" name="view" [(ngModel)]="selectedView" value="B"> B</label>
+
+<div *ngIf="selectedView === 'A'">This is View A</div>
+<div *ngIf="selectedView === 'B'">This is View B</div>
+
+ts
+
+selectedView = 'A';
+
+10) How can we handle multiple API calls and make another call based on their responses?
+Answer:
+Using RxJS forkJoin, switchMap, or concatMap:
+
+ts
+
+forkJoin([
+  this.api.getUser(),
+  this.api.getSettings()
+]).pipe(
+  switchMap(([user, settings]) => this.api.getDashboard(user.id, settings.theme))
+).subscribe(response => {
+  // Handle final response
+});
+
+
+11) What is the difference between Observable and Promise in JavaScript?
+Answer:
+
+Promise: Handles a single async value, resolves once.
+
+Observable: Handles multiple values over time (streams), supports operators and cancellation.
+
+12) Can you transform a list of employee objects to include only name and ID using RxJS?
+Answer:
+
+ts
+
+this.api.getEmployees().pipe(
+  map(employees => employees.map(emp => ({ id: emp.id, name: emp.name })))
+).subscribe(filteredList => console.log(filteredList));
+
+13) What steps would you take to address performance issues in an Angular application?
+Answer:
+
+Use OnPush change detection
+
+Use trackBy with *ngFor
+
+Lazy load modules
+
+Optimize images and bundles
+
+Avoid unnecessary API calls
+
+Use pure pipes
+
+Reduce DOM complexity
+
+Use memoization for expensive calculations
+
+14) How do you handle authentication while routing to another component in Angular?
+Answer:
+Using Route Guards:
+
+ts
+Copy
+Edit
+canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  return this.authService.isLoggedIn();
+}
+Configure in routing module:
+
+ts
+Copy
+Edit
+{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
+
+15) How do you inject services into a component in Angular?
+Answer:
+Via constructor injection:
+
+ts
+
+constructor(private userService: UserService) {}
+Angular injects the singleton instance of UserService if it’s provided in the module or @Injectable({ providedIn: 'root' }).
+
+16) How do you handle communication between two components where actions in one component affect another component?
+Answer:
+
+Parent-Child: Use @Input() and @Output() for data flow and event emission.
+
+Sibling/Unrelated: Use a shared service with RxJS Subjects to broadcast data:
+
+ts
+
+// In Service
+private subject = new Subject<any>();
+broadcast$ = this.subject.asObservable();
+emitChange(data) { this.subject.next(data); }
