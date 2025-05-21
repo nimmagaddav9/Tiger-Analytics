@@ -1,0 +1,241 @@
+Can you quickly introduce yourself and your skills?
+
+I am a core UI Developer with 12+ years of experience building .com websites for different organizations using HTML5, CSS3, JavaScript, Angular 18, React.js, and Redux. 
+In the past 2 years, I worked on the React migration team, where I converted the .net pages to react on united.com. 
+Frontend is React, and used ATMOS (Own library) components used company wide.
+
+Worked on Security features for users where they can manage there account like Forgot password, Forgot MileagePlus number, 
+security questions, Sign-in features, Miles-Pooling, United Club pass,  Recent Activity, dashboard updates and 
+KTN(Known Traveler Number), Accessibility guidelines features on united.com.
+
+used middleware such as redux-saga to handle asynchronous tasks such as API calls, data fetching, and impure actions in a more organized and efficient way.
+
+The new initiative worked on Miles-Pooling( points you get after traveling), TSA Precheck, Account security and management features, and Under18.
+
+Previously worked with Accelerator team for Visa Inc. remediation of MBDA modules like Application Management, Account Management, Portfolio Management, Analytics, Recurring billing, Virtual Terminal, etc for bank users like Wells Fargo,  Bank of America, etc
+
+==============================
+
+2. what is the architecture you followed in united ?
+
+3. why did you choose react.js?
+
+We chose React.js because it offers a component-based architecture, making it easy to build reusable and maintainable UI components. 
+Its virtual DOM improves performance, especially for dynamic and data-driven interfaces. 
+React also integrates well with other libraries and tools, supports server-side rendering, and has a large community and ecosystem,
+which helped us deliver scalable, modern web applications faster.
+
+4. did you work on production related bugs?
+
+Yes, I actively worked on production-related bugs. This included triaging issues reported by users or monitoring tools, 
+reproducing them in lower environments, and providing quick yet stable fixes. I used tools like Chrome DevTools, Postman, and 
+application logs (via CloudWatch or console logs) to debug issues. After identifying the root cause, I would implement fixes, 
+test thoroughly, and push changes through the CI/CD pipeline to production with minimal downtime.
+I also updated Confluence documentation and communicated changes with QA and product teams to ensure smooth releases.
+
+5. What is a State?
+
+In React.js, state is a built-in object that stores dynamic data specific to a component. 
+It allows components to respond to user input, server responses, or internal events by updating the UI when the data changes.
+
+Why Do We Need State?
+We need state in React to:
+
+Track dynamic data: such as form inputs, API responses, UI toggles (like modals or dropdowns), etc.
+
+Enable interactivity: like incrementing a counter, switching tabs, or filtering data.
+
+Trigger re-renders: When state changes, React automatically re-renders the component to reflect the new data in the UI.
+
+6. What is HTTP and HTTPS protocol?
+
+HTTP (HyperText Transfer Protocol) is a protocol used for transferring data between a web browser (client) and a web server. 
+It is the foundation of any data exchange on the web and operates over port 80 by default.
+
+It's stateless – each request is independent.
+
+It transfers data in plain text, which is not secure.
+
+What is HTTPS?
+HTTPS (HyperText Transfer Protocol Secure) is the secure version of HTTP. 
+It uses SSL/TLS encryption to secure the communication between the browser and the server. It operates over port 443.
+
+Encrypts data to protect it from hackers.
+
+Ensures data integrity and authentication (via SSL certificates).
+
+Used for secure transactions, like banking, logins, and e-commerce.
+
+7. What is autodeploy.com/admin URL?
+
+The URL autodeploy.com/admin likely refers to an internal deployment admin dashboard or portal used by your team or organization to:
+
+Trigger deployments
+
+Monitor pipeline statuses
+
+Manage environments (Dev, QA, Staging, Production)
+
+Rollback or restart builds
+
+Review deployment logs and artifacts
+
+This kind of admin interface is commonly seen in custom CI/CD solutions or tools like Jenkins, TeamCity, GitLab CI, or AWS CodePipeline.
+
+8. how does the data flows into reactJS?
+
+In React, data flows in one direction — this is called unidirectional data flow.
+
+From Parent to Child (via Props)
+Props (short for properties) are used to pass data from parent components to child components.
+
+Props are read-only in the child component.
+
+jsx
+
+function Parent() {
+  return <Child name="Vijay" />;
+}
+
+function Child(props) {
+  return <p>Hello, {props.name}</p>;
+}
+
+9. Can you draw the architecture of your application?
+
+Typical Architecture of United.com (or any major airline booking site)
+
+User (Customer)
+   │
+   ▼
+[Web Client / Mobile App]
+  (React/Angular/Next.js frontend)
+   │
+   ▼
+[Content Delivery Network (CDN)]
+  (e.g., Akamai, Cloudflare)
+   │
+   ▼
+[Web Server / Application Server]
+  (Load Balanced, Auto-scaled)
+   │
+   ▼
+[API Gateway / Backend Services]
+   ├── Flight Search Service (queries availability, fares)
+   ├── Booking & Reservation Service
+   ├── User Profile & Authentication Service
+   ├── Payment Gateway Integration
+   ├── Loyalty / Mileage Program Service
+   └── Customer Support & Chatbot Service
+   │
+   ▼
+[Database Layer]
+   ├── Relational DB (Bookings, Users, Flights)
+   ├── NoSQL DB (Sessions, Caching)
+   └── Analytics DB (User behavior, logs)
+   │
+   ▼
+[Third-Party Integrations]
+   ├── Global Distribution Systems (GDS) like Sabre, Amadeus
+   ├── Payment Processors (Stripe, Visa, Mastercard)
+   ├── Identity Verification Providers
+   └── External APIs (Weather, Flight Status)
+
+Explanation:
+User: Browses the site or app.
+
+Web Client: Frontend running React or similar SPA framework to provide smooth interactive experience.
+
+CDN: Delivers static assets fast worldwide.
+
+Web Server: Handles dynamic requests and serves frontend.
+
+API Gateway: Routes to microservices handling specific business logic.
+
+Backend Services: Core flight search, booking, user management, and payment.
+
+Database: Stores all persistent data securely.
+
+Third-Party Integrations: Connects to global flight inventories and payment providers.
+
+10. can you walk me through how your united.com app works?
+
+11. What is MVC architecture? what is View?
+
+MVC stands for Model-View-Controller, a widely used software design pattern for organizing code, especially in web and desktop applications. It separates an application into three main components to promote organized, reusable, and maintainable code.
+
+Components of MVC:
+Model
+
+Represents the data and the business logic of the application.
+
+It directly manages the data, rules, and logic (e.g., database records, validation).
+
+When data changes, the Model notifies the View to update accordingly.
+
+View
+
+The user interface (UI) or presentation layer.
+
+It displays data from the Model to the user.
+
+It listens to Model changes and updates the UI accordingly.
+
+Controller
+
+Acts as an intermediary between Model and View.
+
+Handles user input (like clicks, typing) and commands Model to update or retrieve data.
+
+Selects which View to display based on interactions.
+
+What is the View in MVC?
+The View is what the user sees and interacts with — the layout, buttons, text, images, forms, etc.
+
+It renders the data it receives from the Model into a user-friendly interface.
+
+In web apps, Views are often HTML/CSS templates or frontend components.
+
+Views don’t handle business logic — their job is just to present data and capture user interactions to send to the Controller.
+
+Simple Analogy
+Imagine an app for booking flights:
+
+Model: Flight data, user info, booking records.
+
+View: The booking form, flight search results page, confirmation page.
+
+Controller: Handles clicking “Search Flights,” tells Model to find flights, and tells View to display the results.
+
+12. Is React MVC architecture?
+
+13. suppose 100 lines of code how does change happen?
+
+14. What is DOM?
+
+15. What is parent?
+
+16. what is child?
+
+17. How state works in redux? example
+
+18. What kind of state react supports?
+
+19. username, password where does the data go?
+
+20. have you used Azure, AWS for deployment of the code?
+
+21. why did you use redux-saga? purpose? what side effects did you handle?
+
+22. open a notepad and tell me what is parent and child? with example?
+
+23. why is react unidirectional?
+
+24. did you work on backend also?
+
+25. have you used cloud deployments like AWS, azure?
+
+26. redux architecture how to did you implement in your previous company?
+
+27. how do you deploy your code ? which application?
+
